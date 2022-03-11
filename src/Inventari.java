@@ -11,7 +11,22 @@ public class Inventari {
               }
        }
 
-       void search(Especificacio esp){
+       void search(Especificacio espCerca){
+              for (int i = 0; i < this.ninstr; i++) {
+                     Instrument inst = this.instruments[i];
+                     Especificacio espInstrument = inst.getEspecificacio();
+                     if (espInstrument.match(espCerca)){
+                            System.out.println(inst);
+                     }
+              }
+       }
 
+       @Override
+       public String toString(){
+              String resultat = "";
+              for (int i = 0; i < this.ninstr; i++) {
+                     resultat += this.instruments[i];
+              }
+              return resultat;
        }
 }
